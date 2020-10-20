@@ -79,6 +79,17 @@ table {
 	}
 }
 
+#drum-machine {
+	display: flex;
+	
+}
+
+#display {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
 @import 'utilities';
 @import 'buttons';
 @import 'text-styles';

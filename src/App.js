@@ -61,12 +61,18 @@ function App() {
 	];
 
 	return (
-		<div id='drum-machine'>
-			<div className='display'>
-				{Pads.map((pad) => (
-					<Drumpad pad={pad} />
-				))}
-			</div>
+		<div className='container'>
+			<main id='drum-machine'>
+				<section id='drumkit' className='grid-3 card'>
+					{Pads.map((pad) => (
+						<Drumpad pad={pad} />
+					))}
+				</section>
+				<section id='display' className='card'>
+					<div>Drum sound goes here</div>
+					<div>Volume slider goes here</div>
+				</section>
+			</main>
 		</div>
 	);
 }

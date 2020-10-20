@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Drumpad from './components/Drumpad';
 import './scss/style.scss';
 
@@ -60,16 +60,21 @@ function App() {
 		},
 	];
 
+	const [sound, updateSound] = useState('')
+
+	const displaySound = (name) => {
+		updateSound(name);
+	};
 	return (
 		<div className='container'>
 			<main id='drum-machine'>
 				<section id='drumkit' className='grid-3 card'>
 					{Pads.map((pad) => (
-						<Drumpad pad={pad} />
+						<Drumpad pad={pad} updateDisplay={displaySound}/>
 					))}
 				</section>
 				<section id='display' className='card'>
-					<div>Drum sound goes here</div>
+					<div>{sound}</div>
 					<div>Volume slider goes here</div>
 				</section>
 			</main>

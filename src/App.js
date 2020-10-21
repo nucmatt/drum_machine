@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Drumpad from './components/Drumpad';
+import Volumeslider from './components/Volumeslider';
 import './scss/style.scss';
 
 function App() {
@@ -60,7 +61,9 @@ function App() {
 		},
 	];
 
-	const [sound, updateSound] = useState('')
+	const [sound, updateSound] = useState('');
+
+	const [volume, updateVolume] = useState('0.5');
 
 	const displaySound = (name) => {
 		updateSound(name);
@@ -70,12 +73,12 @@ function App() {
 			<main id='drum-machine'>
 				<section id='drumkit' className='grid-3 card'>
 					{Pads.map((pad) => (
-						<Drumpad pad={pad} updateDisplay={displaySound}/>
+						<Drumpad pad={pad} updateDisplay={displaySound} volume={volume} />
 					))}
 				</section>
 				<section id='display' className='card'>
 					<div>{sound}</div>
-					<div>Volume slider goes here</div>
+					<Volumeslider updateVolume={updateVolume} />
 				</section>
 			</main>
 		</div>

@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 
-const Drumpad = ({ pad: { keyCode, actionKey, id, url }, updateDisplay}) => {
+const Drumpad = ({ pad: { keyCode, actionKey, id, url }, updateDisplay, volume}) => {
 	const playSound = () => {
 		const audio = document.getElementById(actionKey);
 		audio.currentTime = 0;
+		audio.volume = volume;
 		audio.play();
 		updateDisplay(id);
 	};

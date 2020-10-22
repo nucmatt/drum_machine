@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Volumeslider = ({ updateVolume }) => {
-	const volume = document.getElementById('drumvolume');
-	const changeVolume = () => {
+    const changeVolume = () => {
+        const volume = document.getElementById('drumvolume');
 		updateVolume(volume.value / 100);
 	};
 

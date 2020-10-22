@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 
-const Drumpad = ({ pad: { keyCode, actionKey, id, url }, updateDisplay, volume}) => {
+const Drumpad = ({
+	pad: { keyCode, actionKey, id, url },
+	updateDisplay,
+	volume,
+}) => {
 	const playSound = () => {
 		const audio = document.getElementById(actionKey);
 		audio.currentTime = 0;
@@ -16,18 +20,14 @@ const Drumpad = ({ pad: { keyCode, actionKey, id, url }, updateDisplay, volume})
 	};
 
 	useEffect(() => {
-		window.addEventListener('keydown', keyHandler);
+		document.addEventListener('keydown', keyHandler);
 		return () => {
-			window.removeEventListener('keydown', keyHandler);
+			document.removeEventListener('keydown', keyHandler);
 		};
 	});
 	return (
-		<button className='drum-pad btn' id={id} onClick={() => playSound()}>
-			<audio
-				src={url}
-				className='clip'
-				id={actionKey}
-			></audio>
+		<button className='btn drum-pad' id={id} onClick={() => playSound()}>
+			<audio src={url} className='clip' id={actionKey}></audio>
 			{actionKey}
 		</button>
 	);

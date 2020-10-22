@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import Header from './components/Header';
 import Drumpad from './components/Drumpad';
 import Volumeslider from './components/Volumeslider';
+import Footer from './components/Footer';
 import './scss/style.scss';
 
 function App() {
@@ -61,7 +63,7 @@ function App() {
 		},
 	];
 
-	const [sound, updateSound] = useState('');
+	const [sound, updateSound] = useState('Play Me!');
 
 	const [volume, updateVolume] = useState('0.5');
 
@@ -69,18 +71,22 @@ function App() {
 		updateSound(name);
 	};
 	return (
-		<div className='container'>
-			<main id='drum-machine'>
-				<section id='drumkit' className='grid-3 card'>
-					{Pads.map((pad) => (
-						<Drumpad pad={pad} updateDisplay={displaySound} volume={volume} />
-					))}
-				</section>
-				<section id='display' className='card'>
-					<div>{sound}</div>
-					<Volumeslider updateVolume={updateVolume} />
-				</section>
+		<div className='container bg-primary'>
+			<Header />
+			<main>
+				<div id='drum-machine'>
+					<section id='drumkit' className='grid-3 card bg-dark'>
+						{Pads.map((pad) => (
+							<Drumpad pad={pad} updateDisplay={displaySound} volume={volume} />
+						))}
+					</section>
+					<section id='display' className='card bg-light'>
+						<div className='text-center lead'>{sound}</div>
+						<Volumeslider updateVolume={updateVolume} />
+					</section>
+				</div>
 			</main>
+			<Footer />
 		</div>
 	);
 }

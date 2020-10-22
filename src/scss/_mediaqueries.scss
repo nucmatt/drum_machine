@@ -5,6 +5,11 @@
 		display: none;
 	}
 
+	.drum-pad {
+		height: 50px;
+		width: 50px;
+	}
+
 	@each $value in $grid-values {
 		.grid-#{$value} {
 			grid-template-columns: 1fr;

@@ -14,6 +14,13 @@ body {
 	color: $text-color;
 }
 
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 500px;
+}
+
 a {
 	color: $primary-color;
 	text-decoration: none;
@@ -81,14 +88,34 @@ table {
 
 #drum-machine {
 	display: flex;
-	
+	flex-direction: row;
+	align-content: center;
+	justify-content: center;
+	margin: auto;
 }
 
 #display {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
+	width: 200px;
+
+	div {
+		height: 50%;
+		padding: 70px 0;
+	}
 }
+
+.drum-pad {
+	width: 100px;
+	height: 100px;
+}
+
+.active {
+	transform: translateY(1px);
+	opacity: 0.8;
+}
+
 
 @import 'utilities';
 @import 'buttons';

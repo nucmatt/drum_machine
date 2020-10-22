@@ -68,6 +68,9 @@ function App() {
 	const [volume, updateVolume] = useState('0.5');
 
 	const displaySound = (name) => {
+		const pad = document.getElementById(name);
+		pad.setAttribute('class', 'btn drum-pad active');
+		setTimeout(() => pad.setAttribute('class', 'btn drum-pad'), 100);
 		updateSound(name);
 	};
 	return (

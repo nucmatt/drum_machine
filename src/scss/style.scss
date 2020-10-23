@@ -94,11 +94,18 @@ table {
 	margin: auto;
 }
 
+#drumkit {
+	border: $border-color 1px solid;
+	border-radius: 10px 0 0 10px;
+}
+
 #display {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	width: 200px;
+	border: $border-color 1px solid;
+	border-radius: 0 10px 10px 0;
 
 	div {
 		height: 50%;
@@ -116,6 +123,10 @@ table {
 	opacity: 0.8;
 }
 
+.slidecontainer {
+	width: 100%;
+	text-align: center;
+}
 
 @import 'utilities';
 @import 'buttons';
@@ -124,5 +135,6 @@ table {
 @import 'navbar';
 @import 'animations';
 @import 'layout';
+@import './customized-inputs/slider';
 
 @import 'mediaqueries';

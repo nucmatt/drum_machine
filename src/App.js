@@ -79,8 +79,8 @@ function App() {
 			<main>
 				<div id='drum-machine'>
 					<section id='drumkit' className='grid-3 card bg-dark'>
-						{Pads.map((pad) => (
-							<Drumpad pad={pad} updateDisplay={displaySound} volume={volume} />
+						{Pads.map((pad, index) => (
+							<Drumpad key={index} pad={pad} updateDisplay={displaySound} volume={volume} />
 						))}
 					</section>
 					<section id='display' className='card bg-light'>
